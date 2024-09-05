@@ -1,0 +1,12 @@
+{
+  "name": "01-fundamentos",
+  "version": "1.0.0",
+  "description": "React is a JavaScript library for building user interfaces.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
