@@ -18,7 +18,10 @@ const obj = { name: 'John', birthdate: '2004-04-18'};
 const john = makePerson(obj);
 console.log(john)
 
+// PROMISES
 const getPokemonsById = require('./js-foundations/06-promises');
 getPokemonsById(1)
     .then(name => console.log(name))
     .catch(err => console.log('Por favor intente de nuevo', err))
+
+

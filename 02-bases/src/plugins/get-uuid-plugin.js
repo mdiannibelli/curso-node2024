@@ -4,4 +4,6 @@ const getUuid = () => {
     return uuidv4();
 }
 
-module.exports = getUuid;
+module.exports = {
+    getUuid
+};
