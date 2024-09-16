@@ -1,6 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1726080357193" clover="3.2.0">
-  <project timestamp="1726080357193" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
+<coverage generated="1726516945950" clover="3.2.0">
+  <project timestamp="1726516945950" name="All files">
+    <metrics statements="104" coveredstatements="104" conditionals="17" coveredconditionals="17" methods="8" coveredmethods="8" elements="129" coveredelements="129" complexity="0" loc="104" ncloc="104" packages="1" files="5" classes="5"/>
+    <file name="01-template.js" path="C:\Users\mdian\Desktop\curso-node2024\02-bases\src\js-foundations\01-template.js">
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+    </file>
+    <file name="02-desctructuring.js" path="C:\Users\mdian\Desktop\curso-node2024\02-bases\src\js-foundations\02-desctructuring.js">
+      <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+    </file>
+    <file name="03-callbacks.js" path="C:\Users\mdian\Desktop\curso-node2024\02-bases\src\js-foundations\03-callbacks.js">
+      <metrics statements="27" coveredstatements="27" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="2" type="cond" truecount="1" falsecount="0"/>
+      <line num="13" count="2" type="cond" truecount="1" falsecount="0"/>
+      <line num="14" count="2" type="stmt"/>
+      <line num="15" count="2" type="stmt"/>
+      <line num="16" count="2" type="cond" truecount="1" falsecount="0"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="2" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+    </file>
+    <file name="05-factoryFunction.js" path="C:\Users\mdian\Desktop\curso-node2024\02-bases\src\js-foundations\05-factoryFunction.js">
+      <metrics statements="33" coveredstatements="33" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="5" count="2" type="cond" truecount="1" falsecount="0"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="2" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="30" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
+    </file>
+    <file name="06-promises.js" path="C:\Users\mdian\Desktop\curso-node2024\02-bases\src\js-foundations\06-promises.js">
+      <metrics statements="23" coveredstatements="23" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="6" count="2" type="stmt"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="2" type="stmt"/>
+      <line num="14" count="2" type="stmt"/>
+      <line num="15" count="2" type="stmt"/>
+      <line num="16" count="2" type="stmt"/>
+      <line num="17" count="2" type="stmt"/>
+      <line num="18" count="2" type="stmt"/>
+      <line num="19" count="2" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+    </file>
   </project>
 </coverage>
