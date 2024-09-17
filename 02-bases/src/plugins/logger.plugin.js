@@ -24,3 +24,7 @@ module.exports = function buildLogger(service) {
         }
     }
 }
+
+module.exports = {
+    logger
+}
