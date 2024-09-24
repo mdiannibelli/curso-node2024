@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "dev": "ts-node src/app.ts",
     "dev:nodemon": "nodemon",
     "build": "rimraf ./dist && tsc",
@@ -14,11 +16,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^29.5.13",
     "@types/node": "^22.5.5",
     "@types/yargs": "^17.0.33",
     "globals": "^15.9.0",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.6",
     "rimraf": "^6.0.1",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2"
   },

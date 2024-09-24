@@ -1,7 +1,7 @@
 import { yarg } from "./config/plugins/yargs-plugin";
 import { ServerApp } from "./presentations/server-app";
 
-console.log(yarg);
+//console.log(yarg);
 
 (async() => {
     await main()
