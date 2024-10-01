@@ -5,7 +5,20 @@
     ],
     "comments": [
       { "id": "1", "text": "a comment about post 1", "postId": "1" },
-      { "id": "2", "text": "another comment about post 1", "postId": "1" }
+      { "id": "2", "text": "another comment about post 1", "postId": "1" },
+      { "id": "3", "text": "another comment about post 1", "postId": "1" },
+      { "id": "4", "text": "another comment about post 1", "postId": "1" },
+      { "id": "5", "text": "another comment about post 1", "postId": "1" },
+      { "id": "6", "text": "another comment about post 1", "postId": "1" },
+      { "id": "7", "text": "another comment about post 1", "postId": "1" },
+      { "id": "8", "text": "another comment about post 1", "postId": "1" },
+      { "id": "9", "text": "another comment about post 1", "postId": "1" },
+      { "id": "10", "text": "another comment about post 1", "postId": "1" },
+      { "id": "11", "text": "another comment about post 1", "postId": "1" },
+      { "id": "12", "text": "another comment about post 1", "postId": "1" },
+      { "id": "13", "text": "another comment about post 1", "postId": "1" },
+      { "id": "14", "text": "another comment about post 1", "postId": "1" },
+      { "id": "15", "text": "another comment about post 1", "postId": "1" }
     ],
     "profile": {
       "name": "typicode"
