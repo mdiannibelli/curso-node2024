@@ -1,5 +1,16 @@
 # This project uses Clean Architecture
 
+# Instructions
+1. Clonar el archivo .env.template y renombrarlo a .env
+2. Configurar las variables de entorno
+
+```
+PORT=
+MAILER_EMAIL=
+MAILER_SECRET_KEY= 
+PROD=
+```
+
 ## Presentation
 
 It is the layer in charge of interacting with the user, presenting the data in an understandable way and managing interactions with the application. It communicates with the domain layer through use cases to obtain or modify data, but never contains business logic. Your responsibility is only to manage how the data is presented and how the user interacts with it.
