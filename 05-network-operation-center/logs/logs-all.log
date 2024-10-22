@@ -12,3 +12,13 @@
 {"message":"Service https://google.com working","level":"low","createdAt":"2024-10-16T21:56:22.113Z"}
 {"message":"Service https://google.com working","level":"low","createdAt":"2024-10-16T21:58:22.295Z"}
 {"message":"Service https://google.com working","level":"low","createdAt":"2024-10-16T21:58:23.117Z"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2024-10-22T20:10:05.464Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2024-10-22T20:10:06.131Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2024-10-22T20:10:07.143Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2024-10-22T20:10:08.149Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2024-10-22T20:10:09.144Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2024-10-22T20:10:10.128Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2024-10-22T20:10:11.138Z","origin":"check-service.ts"}
+{"message":"Email was not sent","level":"high","createdAt":"2024-10-22T22:54:21.129Z","origin":"emailService.ts"}
+{"message":"Email can not send","level":"high","createdAt":"2024-10-22T23:05:55.400Z","origin":"send-logs.ts"}
+{"message":"Email sent sucessful!","level":"low","createdAt":"2024-10-22T23:06:13.550Z","origin":"send-logs.ts"}
