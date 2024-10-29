@@ -7,9 +7,11 @@ import { CronService } from "./services/cron/cronService"
 import 'dotenv/config';
 import { EmailService } from "./services/email/emailService";
 import { SendLogsEmail } from "../domain/use-cases/email/send-logs";
+import { MongoDatasource } from "../infrastructure/datasources/mongo.datasource";
 
-const fileSystemRepository = new LogRepositoryImplementation(
-    new FileSystemDatasource()
+const logRepository = new LogRepositoryImplementation(
+    //new FileSystemDatasource()
+    new MongoDatasource()
 )
 
 export class Server {
@@ -32,19 +34,18 @@ export class Server {
 
         //! With use case
         const emailService = new EmailService();
-        new SendLogsEmail(emailService, fileSystemRepository).execute(['vectorgamer406@gmail.com', 'dioneldeveloper@gmail.com'])
+        new SendLogsEmail(emailService, logRepository).execute(['vectorgamer406@gmail.com', 'dioneldeveloper@gmail.com'])
 
-        //CronService.createJob(
-        //    '* * * * * *',
-        //    () => {
-        //        new CheckService(
-        //            () => console.log("success"),
-        //            (error) => console.log(error),
-        //            fileSystemRepository
-        //
-        //        ).execute('https://google.com')
-        //        //new CheckService().execute('http://localhost:3000')
-        //    }
-        //)
+        CronService.createJob(
+            '* * * * * *',
+            () => {
+                new CheckService(
+                    () => console.log("success"),
+                    (error) => console.log(error),
+                    logRepository
+
+                ).execute('https://google.com')
+            }
+        )
     }
 }

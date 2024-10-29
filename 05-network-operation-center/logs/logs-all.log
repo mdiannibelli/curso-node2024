@@ -22,3 +22,4 @@
 {"message":"Email was not sent","level":"high","createdAt":"2024-10-22T22:54:21.129Z","origin":"emailService.ts"}
 {"message":"Email can not send","level":"high","createdAt":"2024-10-22T23:05:55.400Z","origin":"send-logs.ts"}
 {"message":"Email sent sucessful!","level":"low","createdAt":"2024-10-22T23:06:13.550Z","origin":"send-logs.ts"}
+{"message":"Email can not send","level":"high","createdAt":"2024-10-28T21:53:05.021Z","origin":"send-logs.ts"}
