@@ -17,7 +17,10 @@ export class UpdateTodoDto {
     }
 
     static update(props: { [key: string]: any }): [string?, UpdateTodoDto?] {
-        const { text, completedAt } = props;
+        const { id, text, completedAt } = props;
+        if (!id || isNaN(Number(id))) {
+            return ['id must be a valid number'];
+        }
 
         let newCompletedAt = completedAt;
         if (completedAt) {
@@ -27,6 +30,6 @@ export class UpdateTodoDto {
             }
         }
 
-        return [undefined, new UpdateTodoDto(text, newCompletedAt)]
+        return [undefined, new UpdateTodoDto(id, text, newCompletedAt)]
     }
 }

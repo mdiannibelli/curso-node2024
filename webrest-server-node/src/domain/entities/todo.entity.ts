@@ -1,3 +1,5 @@
+import { CustomError } from "../errors/custom.error";
+
 export class TodoEntity {
     constructor(
         public id: number,
@@ -13,14 +15,14 @@ export class TodoEntity {
 
     public static fromJson(object: { [key: string]: any }) {
         const { id, text, completedAt } = object;
-        if (!id) throw new Error("id is required");
-        if (!text || typeof text !== 'string') throw new Error("invalid text");
+        if (!id) throw new CustomError("id is required", 400);
+        if (!text || typeof text !== 'string') throw new CustomError("invalid text");
 
         let newCompletedAt;
         if (completedAt) {
             newCompletedAt = new Date(completedAt);
             if (isNaN(newCompletedAt.getTime())) {
-                throw "CompletedAt is not a valid date"
+                throw new CustomError("CompletedAt is not a valid date", 400)
             }
         }
 

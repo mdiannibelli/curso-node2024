@@ -1,6 +1,5 @@
 import { Request, Response } from "express"
 import { CreateTodoDto } from "../../domain/dtos/todos/create-todo.dto";
-import { prisma } from "../../data/postgresql";
 import { UpdateTodoDto } from "../../domain/dtos/todos/update-todo.dto";
 import { TodoRepository } from "../../domain/repositories/todo.repository";
 import { GetTodos } from "../../domain/use-cases/todo/get-todos";
@@ -8,6 +7,7 @@ import { GetTodoById } from "../../domain/use-cases/todo/get-todo";
 import { CreateTodo } from "../../domain/use-cases/todo/create-todo";
 import { UpdateTodo } from "../../domain/use-cases/todo/update-todo";
 import { DeleteTodo } from "../../domain/use-cases/todo/delete-todo";
+import { CustomError } from "../../domain/errors/custom.error";
 
 let todos = [
     { id: 1, text: 'Buy milk', createdAt: new Date() },
@@ -21,11 +21,19 @@ export class TodosController {
         private readonly todoRepository: TodoRepository
     ) { }
 
+    private handleErrorResponse = (res: Response, error: unknown) => {
+        if (error instanceof CustomError) {
+            res.status(error.statusCode).json({ error: error.message });
+            return;
+        }
+        res.status(500).json({ error: 'Internal Server error - check logs' })
+    }
+
     public getTodos = (req: Request, res: Response) => {
         new GetTodos(this.todoRepository)
             .execute()
             .then(todos => res.json(todos))
-            .catch(err => res.status(400).json({ err }))
+            .catch(err => this.handleErrorResponse(res, err))
     };
 
     public getTodoById = async (req: Request, res: Response) => {
@@ -33,7 +41,7 @@ export class TodosController {
         new GetTodoById(this.todoRepository)
             .execute(id)
             .then(todo => res.json(todo))
-            .catch(err => res.status(400).json({ err }))
+            .catch(err => this.handleErrorResponse(res, err))
     };
 
     public createTodo = async (req: Request, res: Response) => {
@@ -42,8 +50,8 @@ export class TodosController {
 
         new CreateTodo(this.todoRepository)
             .execute(createdTodoDto)
-            .then(createdTodo => res.json(createdTodo))
-            .catch(err => res.status(400).json({ err }))
+            .then(createdTodo => res.status(201).json(createdTodo))
+            .catch(err => this.handleErrorResponse(res, err))
     };
 
     public updateTodo = async (req: Request, res: Response) => {
@@ -56,7 +64,7 @@ export class TodosController {
         new UpdateTodo(this.todoRepository)
             .execute(updatedTodoDto)
             .then(updatedTodo => res.json(updatedTodo))
-            .catch(err => res.status(400).json({ err }))
+            .catch(err => this.handleErrorResponse(res, err))
     }
 
     public deleteTodo = async (req: Request, res: Response) => {
@@ -66,6 +74,6 @@ export class TodosController {
         new DeleteTodo(this.todoRepository)
             .execute(id)
             .then(deletedTodo => res.json(deletedTodo))
-            .catch(err => res.status(400).json({ err }))
+            .catch(err => this.handleErrorResponse(res, err))
     }
 }

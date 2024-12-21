@@ -3,6 +3,7 @@ import { TodoDatasource } from "../../../domain/datasources/todo.datasource";
 import { CreateTodoDto } from "../../../domain/dtos/todos/create-todo.dto";
 import { UpdateTodoDto } from "../../../domain/dtos/todos/update-todo.dto";
 import { TodoEntity } from "../../../domain/entities/todo.entity";
+import { CustomError } from "../../../domain/errors/custom.error";
 
 //! PRISMA DATA SOURCE 
 export class TodoDataSourceImpl implements TodoDatasource {
@@ -20,13 +21,13 @@ export class TodoDataSourceImpl implements TodoDatasource {
         const todo = await prisma.todo.findFirst({
             where: { id }
         })
-        if (!todo) throw `Todo with id ${id} not found`;
+        if (!todo) throw new CustomError(`Todo with id ${id} not found`, 404);
         return TodoEntity.fromJson(todo);
     }
 
     async deleteTodoById(id: number): Promise<TodoEntity> {
         const todo = await prisma.todo.findFirst({ where: { id } });
-        if (!todo) throw `Todo with id ${id} not found`;
+        if (!todo) throw new CustomError(`Todo with id ${id} not found`, 404);
 
         const deleted = await prisma.todo.delete({ where: { id } });
         return TodoEntity.fromJson(deleted);
@@ -34,7 +35,7 @@ export class TodoDataSourceImpl implements TodoDatasource {
 
     async updateById(updatedTodoDto: UpdateTodoDto): Promise<TodoEntity> {
         const todo = await this.findById(updatedTodoDto.id);
-        if (!todo) throw `Todo with id ${updatedTodoDto.id} not found`;
+        if (!todo) throw new CustomError(`Todo with id ${updatedTodoDto.id} not found`, 404);
 
         const updatedTodo = await prisma.todo.update({
             where: { id: updatedTodoDto.id },
