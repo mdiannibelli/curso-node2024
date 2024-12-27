@@ -23,6 +23,7 @@ export class CustomError extends Error {
     };
 
     static internalServer(message: string) {
+        // save error message in logs 
         return new CustomError(500, message);
     };
 }
