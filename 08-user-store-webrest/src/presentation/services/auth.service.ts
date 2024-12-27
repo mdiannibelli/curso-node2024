@@ -1,4 +1,5 @@
 import { BcryptjsAdapter } from "../../config/bcryptjs.adapter";
+import { JwtAdapter } from "../../config/jwt.adapter";
 import { UserModel } from "../../data/mongo/models/user.model";
 import { LoginUserDto } from "../../domain/dtos/auth/login-user.dto";
 import { RegisterUserDto } from "../../domain/dtos/auth/register-user.dto";
@@ -40,9 +41,11 @@ export class AuthService {
         if (!user) throw CustomError.badRequest("User does not exist!");
 
         if (!BcryptjsAdapter.compare(loginUserDto.password, user.password)) throw CustomError.badRequest("Invalid password");
+        const token = await JwtAdapter.generateToken({ id: user.id }, '15m');
+        if (!token) throw CustomError.internalServer("Error while generating token");
         return {
             user: user,
-            token: 'ABC'
+            token: token
         }
     }
 }
