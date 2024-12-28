@@ -36,6 +36,12 @@ export class AuthController {
     };
 
     validateEmail = (req: Request, res: Response) => {
-        res.json('validateEmail');
+        const { token } = req.params;
+        if (!token) throw CustomError.badRequest("No token found!");
+
+        this.authService.validatingEmail(token)
+            .then(() => res.json('Email vaildated'))
+            .catch(error => this.handleError(res, error));
     };
+
 }
