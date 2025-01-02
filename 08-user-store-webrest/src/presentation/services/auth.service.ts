@@ -54,6 +54,15 @@ export class AuthService {
             user: user,
             token: token
         }
+
+        //? In frontend you must be provide Bearer token in every request or save token in cookies: 
+        //? fetch("https://api.tuapp.com/algun-recurso", {
+        //?     method: "GET",
+        //?     headers: {
+        //?       Authorization: `Bearer ${token}`,
+        //?       "Content-Type": "application/json",
+        //?     },
+        //?   })
     }
 
     private sendEmailWithValidationLink = async (email: string) => {
