@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { AuthController } from "./controller";
-import { AuthService } from "../services/auth.service";
-import { EmailService } from "../services/email.service";
+import { AuthService } from "../../services/auth.service";
+import { EmailService } from "../../services/email.service";
 import { envs } from "../../config/envs";
 
 export class AuthRouter {

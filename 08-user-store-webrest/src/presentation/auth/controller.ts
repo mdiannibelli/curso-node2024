@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { RegisterUserDto } from "../../domain/dtos/auth/register-user.dto";
-import { AuthService } from "../services/auth.service";
+import { AuthService } from "../../services/auth.service";
 import { CustomError } from "../../domain/errors/custom.error";
 import { LoginUserDto } from "../../domain/dtos/auth/login-user.dto";
 

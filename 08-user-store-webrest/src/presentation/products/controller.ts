@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ProductsService } from "../services/products.service";
+import { ProductsService } from "../../services/products.service";
 import { CustomError } from "../../domain/errors/custom.error";
 import { CreateProductDTO } from "../../domain/dtos/products/create-product.dto";
 import { PaginationDTO } from "../../domain/dtos/shared/pagination.dto";

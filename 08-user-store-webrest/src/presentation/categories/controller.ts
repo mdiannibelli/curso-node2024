@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { CustomError } from "../../domain/errors/custom.error"
-import { CategoryService } from "../services/category.service";
+import { CategoryService } from "../../services/category.service";
 import { CreateCategoryDTO } from "../../domain/dtos/categories/create-category.dto";
 import { PaginationDTO } from "../../domain/dtos/shared/pagination.dto";
 
