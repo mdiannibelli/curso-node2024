@@ -1,4 +1,4 @@
-import envs from "../../../config/envs";
+import envs from "./../../config/envs";
 
 export class DiscordService {
     private readonly discordWebhookUrl: string = envs.DISCORD_WEBHOOK_URL;

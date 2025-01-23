@@ -1,5 +1,5 @@
-import { GithubIssue } from "../../../interfaces/github-issue.interface";
-import { GithubStar } from "../../../interfaces/github-star.interface";
+import { GithubIssue } from "./../../interfaces/github-issue.interface";
+import { GithubStar } from "./../../interfaces/github-star.interface";
 
 export class GithubService {
     constructor() { }
