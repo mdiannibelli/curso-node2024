@@ -1,10 +1,9 @@
 {
-  "name": "10-serverless-edge-functions",
+  "name": "10-serverless",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsnd --respawn --clear src/app.ts",
     "build": "rimraf ./dist && tsc",
     "start": "npm run build && node dist/app.js",
@@ -14,15 +13,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/node": "^20.11.25",
-    "rimraf": "^5.0.5",
+    "@types/node": "^20.6.3",
+    "rimraf": "^5.0.1",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.4.2"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@netlify/functions": "^2.6.0",
-    "dotenv": "^16.4.5",
-    "env-var": "^7.4.1"
+    "@netlify/functions": "^2.0.2"
   }
 }

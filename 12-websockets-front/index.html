@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Websockets <small>Status</small></h1>
+
+    <form>
+        <input type="text" placeholder="Enviar mensaje">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <ul id="messages">
+
+    </ul>
+
+    <script>
+        let socket = null;
+        const wsUrl = 'ws://localhost:5000';
+
+        const $form = document.querySelector('form');
+        const $input = document.querySelector('input');
+        const $messages = document.querySelector('#messages')
+        const $status = document.querySelector('small');
+
+        function sendMessage(message) {
+            socket?.send(message);
+        }
+
+        function renderMessage(object) {
+            const { payload } = object
+            let $li = document.createElement('li');
+            $li.textContent = payload;
+            $messages.prepend($li);
+        };
+
+        $form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let message = $input.value;
+            sendMessage(message);
+            $input.value = null;
+        })
+
+        function connectToServer() {
+            socket = new WebSocket(wsUrl);
+
+            socket.onopen = (e) => {
+                $status.innerHTML = 'Online'
+                console.log('connected');
+            }
+
+            socket.onclose = (e) => {
+                $status.innerHTML = 'Offline'
+                console.log('disconnected')
+                setTimeout(() => {
+                    connectToServer(); // try to reconnect
+                }, 1500)
+            }
+
+            socket.onmessage = (e) => {
+                const { data } = e;
+                console.log(`received a message from websocket: ${data}`);
+                let parsedData = JSON.parse(data);
+                renderMessage(parsedData);
+            }
+        }
+
+
+        connectToServer()
+    </script>
+</body>
+
+</html>
