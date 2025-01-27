@@ -14,14 +14,16 @@ function main() {
 
   const server = new Server({
     port: envs.PORT,
-    routes: AppRoutes.routes,
+    // routes: AppRoutes.routes,
   });
 
   const httpServer = createServer(server.app) // same configuration of express server
-  WebSocketService.createWebSocketService({
+  WebSocketService.initialize({
     server: httpServer,
     path: '/ws'
   })
+
+  server.setRoutes(AppRoutes.routes); // set routes after WebsocketService was initialized
 
   // server.start();
   httpServer.listen(envs.PORT, () => {

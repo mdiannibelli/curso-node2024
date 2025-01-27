@@ -23,7 +23,7 @@ export class WebSocketService {
         return WebSocketService.__instance;
     }
 
-    static createWebSocketService(options: Options) {
+    static initialize(options: Options) {
         const { server, path = '/ws' } = options;
         WebSocketService.__instance = new WebSocketService({ server, path });
     }
