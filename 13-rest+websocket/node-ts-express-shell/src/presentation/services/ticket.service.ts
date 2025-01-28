@@ -1,8 +1,13 @@
 import { UUIDAdapter } from "../../config/adapters/uuid.adapter";
 import { Ticket } from "../../domain/interfaces/ticket";
+import { WebSocketService } from "./wss.service";
 
 export class TicketService {
-    public readonly tickets: Ticket[] = [
+    constructor(
+        private readonly webSocketService = WebSocketService.instance
+    ) { }
+
+    public tickets: Ticket[] = [
         { id: UUIDAdapter.v4(), number: 1, createdAt: new Date(), done: false },
         { id: UUIDAdapter.v4(), number: 2, createdAt: new Date(), done: false },
         { id: UUIDAdapter.v4(), number: 3, createdAt: new Date(), done: false },
@@ -31,7 +36,9 @@ export class TicketService {
         }
 
         this.tickets.push(newTicket);
-        // TODO WS
+
+        // send message to all client
+        this.onTicketNumberChanged()
 
         return newTicket;
     };
@@ -45,14 +52,16 @@ export class TicketService {
 
         this.workingOnTickets.unshift({ ...ticket });
 
-        // TODO WS
+        // send message to all client
+        this.onTicketNumberChanged();
+        this.onWorkingOnChanged();
 
         return { status: 'ok', message: ticket };
     }
 
     public finishTicket(ticketId: string) {
         const ticket = this.tickets.find(t => t.id === ticketId);
-        if (!ticket) return { status: 'error', message: 'there is ticket with received id' };
+        if (!ticket) return { status: 'error', message: 'there is no ticket with received id' };
 
         this.tickets.map(ticket => {
             if (ticket.id === ticketId) {
@@ -66,5 +75,13 @@ export class TicketService {
 
     public get lastWorkingOnTickets() {
         return this.workingOnTickets.slice(0, 4); // only the first 4 tickets working on;
+    }
+
+    private onTicketNumberChanged() {
+        this.webSocketService.sendMessage('on-ticket-count-changed', this.pendingTickets.length);
+    }
+
+    private onWorkingOnChanged() {
+        this.webSocketService.sendMessage('on-working-changed', this.lastWorkingOnTickets);
     }
 }

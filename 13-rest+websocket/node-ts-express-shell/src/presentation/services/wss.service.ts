@@ -16,7 +16,7 @@ export class WebSocketService {
         this.start();
     }
 
-    public get instance(): WebSocketService {
+    public static get instance(): WebSocketService {
         if (!WebSocketService.__instance) {
             throw 'WebSocketService is not initialized';
         }
@@ -35,6 +35,14 @@ export class WebSocketService {
             ws.on('close', () => {
                 console.log('Client disconnected');
             })
+        })
+    }
+
+    public sendMessage(type: string, payload: Object) { // send to all clients
+        this.wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(JSON.stringify({ type, payload }));
+            }
         })
     }
 }
